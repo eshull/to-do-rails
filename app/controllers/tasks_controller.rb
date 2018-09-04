@@ -22,6 +22,9 @@ class TasksController < ApplicationController
  def show
    # @task = Task.find(params[:id])
    @list = List.find(params[:list_id])
+   @not_done_tasks = Task.not_completed
+   @frogs = Task.completed
+   binding.pry
    render "lists/show"
  end
 
@@ -34,7 +37,6 @@ class TasksController < ApplicationController
  def update
    @task = Task.find(params[:id])
    if @task.update(task_params)
-     # binding.pry
      redirect_to list_task_path
    else
      render :edit

@@ -6,6 +6,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @not_done_tasks = Task.not_completed
+    @frogs = Task.completed
     render :show
   end
 
