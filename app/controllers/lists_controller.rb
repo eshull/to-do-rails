@@ -8,6 +8,9 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @not_done_tasks = Task.not_completed
     @frogs = Task.completed
+    @frogs1 = @frogs.where(list_id: @list.id)
+    @not_done_tasks1 = @not_done_tasks.where(list_id: @list.id)
+    # byebug
     render :show
   end
 

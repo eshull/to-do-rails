@@ -1,10 +1,10 @@
 <h1><%= @list.name %></h1>
 
-<% if !@not_done_tasks.nil? %>
+<% if !@not_done_tasks1.nil? %>
   <h4>Here are the uncompleted tasks for this list:</h4>
 
   <ul>
-    <% @not_done_tasks.each do |task| %>
+    <% @not_done_tasks1.each do |task| %>
       <li>
 
         <strong><%= task.description %></strong>
@@ -17,10 +17,10 @@
     <% end %>
   </ul>
 <% end %>
-<% if !@frogs.nil? %>
+<% if !@frogs1.nil? %>
   <h4>Here are the completed tasks: </h4>
   <ul>
-    <% @frogs.each do |task| %>
+    <% @frogs1.each do |task| %>
       <li>
         <%= task.description %>
         <%= link_to "Edit", edit_list_task_path(@list, task) %> |

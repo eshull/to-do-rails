@@ -22,9 +22,11 @@ class TasksController < ApplicationController
  def show
    # @task = Task.find(params[:id])
    @list = List.find(params[:list_id])
-   @not_done_tasks = Task.not_completed
-   @frogs = Task.completed
-   binding.pry
+   @not_done_tasks = List.not_completed
+   @frogs = List.completed
+   @frogs1 = @frogs.where(list_id: @list.id)
+   @not_done_tasks1 = @not_done_tasks.where(list_id: @list.id)
+   # byebug
    render "lists/show"
  end
 
